@@ -35,10 +35,11 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
+    /* first entry is default */
 	/* symbol     arrange function */
-	{ "[|3",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
 	{ "vvv",      bstackhoriz },
+	{ "[M]",      monocle },
+	{ "[|3",      tile },
 };
 
 /* key definitions */
