@@ -37,7 +37,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
     /* first entry is default */
 	/* symbol     arrange function */
-	{ "vvv",      bstackhoriz },
+	{ "vvv",      bstack },
 	{ "[M]",      monocle },
 	{ "[|3",      tile },
 };
