@@ -417,7 +417,7 @@ attachstack(Client *c)
 	c->mon->stack = c;
 }
 
-static void
+void
 bstack(Monitor *m) {
 	int w, h, mh, mx, tx, ty, tw;
 	unsigned int i, n;
@@ -449,7 +449,7 @@ bstack(Monitor *m) {
 	}
 }
 
-static void
+void
 bstackhoriz(Monitor *m) {
 	int w, mh, mx, tx, ty, th;
 	unsigned int i, n;
