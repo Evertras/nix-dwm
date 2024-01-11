@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	/* TODO: Make this configurable */
-	"sh", "-c", "while true; do xsetroot -name \"$(date '+%a %m-%d %H:%M')\"; sleep 1m; done", NULL,
+	"sh", "-c", "while true; do xsetroot -name \"$(date '+%a %m-%d %H:%M ')\"; sleep 1m; done", NULL,
 	NULL /* terminate */
 };
 
