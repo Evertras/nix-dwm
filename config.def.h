@@ -17,6 +17,12 @@ static const char *colors[][3]      = {
 	[SchemeTitle] = { col_primary,    col_background, col_primary },
 };
 
+static const char *const autostart[] = {
+	/* TODO: Make this configurable */
+	"sh", "-c", "while true; do xsetroot -name \"$(date '+%a %m:%d %H:%M')\"; sleep 1m; done", NULL,
+	NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
