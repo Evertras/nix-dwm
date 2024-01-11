@@ -11,9 +11,10 @@ static const char col_background[]  = "${colorBackground}";
 static const char col_text[]        = "${colorText}";
 static const char col_primary[]     = "${colorPrimary}";
 static const char *colors[][3]      = {
-	/*               fg              bg              border   */
-	[SchemeNorm] = { col_text,       col_background, col_primary },
-	[SchemeSel]  = { col_background, col_primary,    col_primary },
+	/*                fg              bg              border   */
+	[SchemeNorm]  = { col_text,       col_background, col_primary },
+	[SchemeSel]   = { col_background, col_primary,    col_primary },
+	[SchemeTitle] = { col_primary,    col_background, col_primary },
 };
 
 /* tagging */
