@@ -28,6 +28,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <libgen.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <X11/cursorfont.h>
@@ -1733,6 +1735,8 @@ showhide(Client *c)
 	}
 }
 
+#define SPAWN_CWD_DELIM " []{}()<>\"':"
+
 void
 spawn(const Arg *arg)
 {
@@ -1743,6 +1747,39 @@ spawn(const Arg *arg)
 	if (fork() == 0) {
 		if (dpy)
 			close(ConnectionNumber(dpy));
+		/* https://sunaku.github.io/dwm-spawn-cwd-patch.html */
+		if(selmon->sel) {
+			const char* const home = getenv("HOME");
+			assert(home && strchr(home, '/'));
+			const size_t homelen = strlen(home);
+			char *cwd, *pathbuf = NULL;
+			struct stat statbuf;
+
+			cwd = strtok(selmon->sel->name, SPAWN_CWD_DELIM);
+			/* NOTE: strtok() alters selmon->sel->name in-place,
+			 * but that does not matter because we are going to
+			 * exec() below anyway; nothing else will use it */
+			while(cwd) {
+				if(*cwd == '~') { /* replace ~ with $HOME */
+					if(!(pathbuf = malloc(homelen + strlen(cwd)))) /* ~ counts for NULL term */
+						die("fatal: could not malloc() %u bytes\n", homelen + strlen(cwd));
+					strcpy(strcpy(pathbuf, home) + homelen, cwd + 1);
+					cwd = pathbuf;
+				}
+
+				if(strchr(cwd, '/') && !stat(cwd, &statbuf)) {
+					if(!S_ISDIR(statbuf.st_mode))
+						cwd = dirname(cwd);
+
+					if(!chdir(cwd))
+						break;
+				}
+
+				cwd = strtok(NULL, SPAWN_CWD_DELIM);
+			}
+
+			free(pathbuf);
+		}
 		setsid();
 
 		sigemptyset(&sa.sa_mask);
