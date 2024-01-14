@@ -116,24 +116,24 @@ static const Key keys[] = {
 	/* Media keys, make more configurable in the future - uses funcs installed
 	   by nix in ~/.evertras/funcs, makes assumptions, but just want to get
 	   this up and running before making it fancy. */
-	{ 0,                       XF86XK_AudioLowerVolume,   {.v = CMD("volume-down") } },
-	{ 0,                       XF86XK_AudioRaiseVolume,   {.v = CMD("volume-up") } },
-	{ 0,                       XF86XK_AudioMute,          {.v = CMD("volume-mute-toggle") } },
-	{ 0,                       XF86XK_MonBrightnessUp,    {.v = SHCMD("brightness-change 10%+") } },
-	{ 0,                       XF86XK_MonBrightnessDown,  {.v = SHCMD("brightness-change 10%-") } },
+	{ 0,                       XF86XK_AudioLowerVolume,   spawn, {.v = CMD("volume-down") } },
+	{ 0,                       XF86XK_AudioRaiseVolume,   spawn, {.v = CMD("volume-up") } },
+	{ 0,                       XF86XK_AudioMute,          spawn, {.v = CMD("volume-mute-toggle") } },
+	{ 0,                       XF86XK_MonBrightnessUp,    spawn, {.v = SHCMD("brightness-change 10%+") } },
+	{ 0,                       XF86XK_MonBrightnessDown,  spawn, {.v = SHCMD("brightness-change 10%-") } },
 	/* Some other ideas for the future */
 	/*
-	{ 0,                       XF86XK_AudioPlay,          {.v = SHCMD("playerctl play-pause") } },
-	{ 0,                       XF86XK_AudioNext,          {.v = SHCMD("playerctl next") } },
-	{ 0,                       XF86XK_AudioPrev,          {.v = SHCMD("playerctl previous") } },
-	{ 0,                       XF86XK_AudioStop,          {.v = SHCMD("playerctl stop") } },
-	{ 0,                       XF86XK_AudioRewind,        {.v = SHCMD("playerctl position 10-") } },
-	{ 0,                       XF86XK_AudioForward,       {.v = SHCMD("playerctl position 10+") } },
-	{ 0,                       XF86XK_AudioMicMute,       {.v = SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") } },
-	{ 0,                       XF86XK_Display,            {.v = SHCMD("autorandr --change") } },
-	{ 0,                       XF86XK_TouchpadToggle,     {.v = SHCMD("touchpad-toggle") } },
-	{ 0,                       XF86XK_TouchpadOff,        {.v = SHCMD("touchpad-toggle off") } },
-	{ 0,                       XF86XK_TouchpadOn,         {.v = SHCMD("touchpad-toggle on") } },
+	{ 0,                       XF86XK_AudioPlay,          spawn, {.v = SHCMD("playerctl play-pause") } },
+	{ 0,                       XF86XK_AudioNext,          spawn, {.v = SHCMD("playerctl next") } },
+	{ 0,                       XF86XK_AudioPrev,          spawn, {.v = SHCMD("playerctl previous") } },
+	{ 0,                       XF86XK_AudioStop,          spawn, {.v = SHCMD("playerctl stop") } },
+	{ 0,                       XF86XK_AudioRewind,        spawn, {.v = SHCMD("playerctl position 10-") } },
+	{ 0,                       XF86XK_AudioForward,       spawn, {.v = SHCMD("playerctl position 10+") } },
+	{ 0,                       XF86XK_AudioMicMute,       spawn, {.v = SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") } },
+	{ 0,                       XF86XK_Display,            spawn, {.v = SHCMD("autorandr --change") } },
+	{ 0,                       XF86XK_TouchpadToggle,     spawn, {.v = SHCMD("touchpad-toggle") } },
+	{ 0,                       XF86XK_TouchpadOff,        spawn, {.v = SHCMD("touchpad-toggle off") } },
+	{ 0,                       XF86XK_TouchpadOn,         spawn, {.v = SHCMD("touchpad-toggle on") } },
 	*/
 
 	/* Additional keybinds added here */
