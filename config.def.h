@@ -117,8 +117,8 @@ static const Key keys[] = {
 	{ 0,                       XF86XK_AudioLowerVolume,   spawn, CMD("/home/evertras/.evertras/funcs/volume-down") },
 	{ 0,                       XF86XK_AudioRaiseVolume,   spawn, CMD("/home/evertras/.evertras/funcs/volume-up") },
 	{ 0,                       XF86XK_AudioMute,          spawn, CMD("/home/evertras/.evertras/funcs/volume-mute-toggle") },
-	{ 0,                       XF86XK_MonBrightnessUp,    spawn, SHCMD("/home/evertras/.evertras/funcs/brightness-change 10%+") },
-	{ 0,                       XF86XK_MonBrightnessDown,  spawn, SHCMD("/home/evertras/.evertras/funcs/brightness-change 10%-") },
+	{ 0,                       XF86XK_MonBrightnessUp,    spawn, CMD("/home/evertras/.evertras/funcs/brightness-up") },
+	{ 0,                       XF86XK_MonBrightnessDown,  spawn, CMD("/home/evertras/.evertras/funcs/brightness-down") },
 	/* Some other ideas for the future */
 	/*
 	{ 0,                       XF86XK_AudioPlay,          spawn, {.v = SHCMD("playerctl play-pause") } },
