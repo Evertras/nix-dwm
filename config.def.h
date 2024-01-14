@@ -63,6 +63,9 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+/* helper for spawning simple commands */
+#define CMD(cmd) { .v = (const char*[]){ cmd, NULL } }
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
@@ -113,9 +116,9 @@ static const Key keys[] = {
 	/* Media keys, make more configurable in the future - uses funcs installed
 	   by nix in ~/.evertras/funcs, makes assumptions, but just want to get
 	   this up and running before making it fancy. */
-	{ 0,                       XF86XK_AudioLowerVolume,   {.v = SHCMD("volume-down") } },
-	{ 0,                       XF86XK_AudioRaiseVolume,   {.v = SHCMD("volume-up") } },
-	{ 0,                       XF86XK_AudioMute,          {.v = SHCMD("volume-mute-toggle") } },
+	{ 0,                       XF86XK_AudioLowerVolume,   {.v = CMD("volume-down") } },
+	{ 0,                       XF86XK_AudioRaiseVolume,   {.v = CMD("volume-up") } },
+	{ 0,                       XF86XK_AudioMute,          {.v = CMD("volume-mute-toggle") } },
 	{ 0,                       XF86XK_MonBrightnessUp,    {.v = SHCMD("brightness-change 10%+") } },
 	{ 0,                       XF86XK_MonBrightnessDown,  {.v = SHCMD("brightness-change 10%-") } },
 	/* Some other ideas for the future */
