@@ -116,11 +116,11 @@ static const Key keys[] = {
 	/* Media keys, make more configurable in the future - uses funcs installed
 	   by nix in ~/.evertras/funcs, makes assumptions, but just want to get
 	   this up and running before making it fancy. */
-	{ 0,                       XF86XK_AudioLowerVolume,   spawn, CMD("volume-down") },
-	{ 0,                       XF86XK_AudioRaiseVolume,   spawn, CMD("volume-up") },
-	{ 0,                       XF86XK_AudioMute,          spawn, CMD("volume-mute-toggle") },
-	{ 0,                       XF86XK_MonBrightnessUp,    spawn, SHCMD("brightness-change 10%+") },
-	{ 0,                       XF86XK_MonBrightnessDown,  spawn, SHCMD("brightness-change 10%-") },
+	{ 0,                       XF86XK_AudioLowerVolume,   spawn, CMD("/home/evertras/.evertras/funcs/volume-down") },
+	{ 0,                       XF86XK_AudioRaiseVolume,   spawn, CMD("/home/evertras/.evertras/funcs/volume-up") },
+	{ 0,                       XF86XK_AudioMute,          spawn, CMD("/home/evertras/.evertras/funcs/volume-mute-toggle") },
+	{ 0,                       XF86XK_MonBrightnessUp,    spawn, SHCMD("/home/evertras/.evertras/funcs/brightness-change 10%+") },
+	{ 0,                       XF86XK_MonBrightnessDown,  spawn, SHCMD("/home/evertras/.evertras/funcs/brightness-change 10%-") },
 	/* Some other ideas for the future */
 	/*
 	{ 0,                       XF86XK_AudioPlay,          spawn, {.v = SHCMD("playerctl play-pause") } },
