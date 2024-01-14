@@ -70,8 +70,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "${terminal}", NULL };
-static const char *lockcmd[]  = { "${lock}", NULL };
-static const char *browsercmd[] = { "${browser}", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -137,8 +135,8 @@ static const Key keys[] = {
 	*/
 
 	/* Additional keybinds added here */
-	{ MODKEY,                       XK_Escape, spawn,          {.v = lockcmd } },
-	{ MODKEY,                       XK_r,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_Escape, spawn,          CMD("${lock}") },
+	{ MODKEY,                       XK_r,      spawn,          CMD("${browser}") },
 };
 
 /* button definitions */
