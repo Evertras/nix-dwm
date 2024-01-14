@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -107,6 +109,29 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+	/* Media keys, make more configurable in the future - uses funcs installed
+	   by nix in ~/.evertras/funcs, makes assumptions, but just want to get
+	   this up and running before making it fancy. */
+	{ 0,                       XF86XK_AudioLowerVolume,   {.v = SHCMD("volume-down") } },
+	{ 0,                       XF86XK_AudioRaiseVolume,   {.v = SHCMD("volume-up") } },
+	{ 0,                       XF86XK_AudioMute,          {.v = SHCMD("volume-mute-toggle") } },
+	{ 0,                       XF86XK_MonBrightnessUp,    {.v = SHCMD("brightness-change 10%+") } },
+	{ 0,                       XF86XK_MonBrightnessDown,  {.v = SHCMD("brightness-change 10%-") } },
+	/* Some other ideas for the future */
+	/*
+	{ 0,                       XF86XK_AudioPlay,          {.v = SHCMD("playerctl play-pause") } },
+	{ 0,                       XF86XK_AudioNext,          {.v = SHCMD("playerctl next") } },
+	{ 0,                       XF86XK_AudioPrev,          {.v = SHCMD("playerctl previous") } },
+	{ 0,                       XF86XK_AudioStop,          {.v = SHCMD("playerctl stop") } },
+	{ 0,                       XF86XK_AudioRewind,        {.v = SHCMD("playerctl position 10-") } },
+	{ 0,                       XF86XK_AudioForward,       {.v = SHCMD("playerctl position 10+") } },
+	{ 0,                       XF86XK_AudioMicMute,       {.v = SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") } },
+	{ 0,                       XF86XK_Display,            {.v = SHCMD("autorandr --change") } },
+	{ 0,                       XF86XK_TouchpadToggle,     {.v = SHCMD("touchpad-toggle") } },
+	{ 0,                       XF86XK_TouchpadOff,        {.v = SHCMD("touchpad-toggle off") } },
+	{ 0,                       XF86XK_TouchpadOn,         {.v = SHCMD("touchpad-toggle on") } },
+	*/
 
 	/* Additional keybinds added here */
 	{ MODKEY,                       XK_Escape, spawn,          {.v = lockcmd } },
