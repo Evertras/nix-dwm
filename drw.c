@@ -4,7 +4,7 @@
 #include <string.h>
 #include <X11/Xlib.h>
 #include <X11/Xft/Xft.h>
-#incldue <X11/Xcursor/Xcursor.h>
+#include <X11/Xcursor/Xcursor.h>
 
 #include "drw.h"
 #include "util.h"
